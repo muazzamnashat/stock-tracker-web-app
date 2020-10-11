@@ -7,19 +7,39 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>StockTrackerWebApp</title>
+    <title>StockTracker</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+
+  <script src="https://www.google.com/jsapi"></script>
+    <script src="chartkick.js"></script>
+
   </head>
   <body>
-    <div class="wrapper">
 
-        <%= yield %>
+
+<div class="topnav">
+<%# class="active" %>
+   <a href="/stocks">Home</a>
+   <a href="/news">News</a>
+   <a href="/analysis">Recommendation Trends</a>
+   <a href="#about">About</a>
+</div>
+
+    <div class="wrapper">
+      <% flash.keys.each do | type|  %>
+        <div>
+          <%= flash[type] %>
+        </div>
+      <% end %>
+      <%= yield %>
+
+
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>StockTrackerWebApp</strong></small>
+        <small>&copy; 2020 <strong>StockTracker</strong></small>
       </footer>
     </div>
 
